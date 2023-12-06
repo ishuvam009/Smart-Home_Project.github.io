@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature and Humidity Display</title>
+  <style>
+    *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-image: linear-gradient(to right, #0e5fd8, #6850c7, #8e3fb1, #a52b98, #b3167d);
+  animation: changeGradient 32s linear infinite; /* Each gradient transition takes 8 seconds, and there are 4 gradients. So, the total duration is 32 seconds. */
+}
+
+.card{
+width: 60%;
+max-width: 470px;
+background-image: linear-gradient(to right, #726666, #7f6f68, #847a69, #828870, #789681);
+border-radius: 20px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+text-align: center;
+transition: transform 0.3s;
+margin: 100px auto 0;
+padding: 40px 30px; 
+}
+
+.card:hover{
+transform: scale(1.05);
+}
+
+.clear-image{
+width: 100px;
+height: 100px;
+}
+
+.details{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 20px 0 0;
+padding: 0 10px;
+}
+
+.col{
+display: flex;
+align-items: center;
+text-align: left;
+}
+
+.col img{
+width: 40px;
+margin-right: 10px;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="https://ishuvam009.github.io/Smart-home-temperature.github.io/src/clouds.png" alt="clear" class="clear-image">
+    <h1>Bedroom</h1>
+
+    <!-- space -->
+
+    <div class="details">
+        <div class="col">
+            <img src="https://ishuvam009.github.io/Smart-home-temperature.github.io/src/temp.png" alt="temperature">
+            <div>
+                <p class="temperature" id="temperature"></p>
+                <!-- <p>Temperature</p> -->
+            </div>
+        </div>
+
+        <div class="col">
+            <img src="https://ishuvam009.github.io/Smart-home-temperature.github.io/src/humidity.png" alt="humidity">
+            <div>
+                <p class="humidity" id="humidity"></p>
+                <!-- <p>Humidity</p> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+  <script>
+    function fetchData(url, callback) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => callback(data))
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    function updateTemperature(data) {
+      console.log('Temperature API response:', data);
+      document.getElementById('temperature').textContent = `Temperature: ${data} °C`;
+    }
+
+    function updateHumidity(data) {
+      console.log('Humidity API response:', data);
+      document.getElementById('humidity').textContent = `Humidity: ${data}%`;
+    }
+
+    function updateData() {
+      // Fetch temperature data
+      fetchData('https://blr1.blynk.cloud/external/api/get?token=Znq0DTC_I0tpSvIECajrsjOc_pTQr27K&v0', updateTemperature);
+
+      // Fetch humidity data
+      fetchData('https://blr1.blynk.cloud/external/api/get?token=Znq0DTC_I0tpSvIECajrsjOc_pTQr27K&v5', updateHumidity);
+    }
+
+    // Initial data update
+    updateData();
+
+    // Set interval for automatic update (every 10 seconds in this example)
+    setInterval(function() {
+      location.reload();
+    }, 3000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .top-bar {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .avatar {
+          display: flex;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #fff;
+          justify-content: flex-end;
+          margin-left: 1800px;
+        }
+
+        .menu-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .main-body {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card1 {
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .card1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .card2 {
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .card2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .card1:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card2:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .h2text{
+            text-align: center;
+        }
+    </style>
+    <title>Dashboard</title>
+</head>
+<body>
+    <body>
+
+        <div class="top-bar">
+            <h2>Smart HOME</h2>
+            <!-- Avatar of the logged-in person -->
+            <!-- <div class="avatar"></div> -->
+    
+            <!-- Three-bar menu icon -->
+    <!--         <div class="menu-icon">&#9776;</div> -->
+          
+        </div>
+    
+        <div class="dashboard">
+            <!-- Left Sidebar -->
+            <div class="left-sidebar">
+                <!-- Left Sidebar Content Goes Here -->
+                <H1>HOME</H1>
+            </div>
+    
+            <!-- Main Body -->
+            <div class="main-body">
+                <!-- Cards in the main body -->
+                <div class="card1" onclick="location.href='temphumi.html'">
+                    <!-- Card Content Goes Here -->
+                    <img src="img/temp.webp" alt="">
+                    <h2 class="h2text">Temperature</h2>
+                </div>
+    
+                <div class="card2" onclick="location.href='device-control.html'">
+                    <!-- Card Content Goes Here -->
+                    <img src="img/devicecontrol.webp" alt="">
+                    <h2 class="h2text">Device Control</h2>
+                </div>
+            </div>
+        </div>
+    c
+    </body>
+</body>
+</html>
